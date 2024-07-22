@@ -12,9 +12,9 @@ CREATE OR REPLACE WAREHOUSE XS_WH WAREHOUSE_SIZE = XSMALL;
 USE WAREHOUSE XS_WH;
 
 #Step 4. Create a table function that will read the PDF documents and split them in chunks
-We will be using the PyPDF2 and Langchain Python libraries to accomplish the necessary document processing tasks.
-Because as part of Snowpark Python these are available inside the integrated Anaconda repository,
-there are no manual installs or Python environment and dependency management required.#
+#We will be using the PyPDF2 and Langchain Python libraries to accomplish the necessary document processing tasks.
+#Because as part of Snowpark Python these are available inside the integrated Anaconda repository,
+#there are no manual installs or Python environment and dependency management required.#
 
 create or replace function pdf_text_chunker(file_url string)
 returns table (chunk varchar)
@@ -83,7 +83,7 @@ create or replace stage docs ENCRYPTION = (TYPE = 'SNOWFLAKE_SSE') DIRECTORY = (
 
 #Step 7. Check files has been successfully uploaded
 ls @docs;
-3. Build the Vector Store
+#3. Build the Vector Store
 
 #Step 1. Create the table where we are going to store the chunks and vectors for each PDF. Note here the usage of the new VECTOR data type:
 
